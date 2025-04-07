@@ -55,18 +55,11 @@ export default function GsapShowcase() {
       className="space-y-24 p-10 text-white min-h-screen bg-cover bg-center"
       style={{ backgroundImage: "url('/profolio.jpg')" }}
     >
-      {/* Hero */}
-      {/* <section ref={heroRef} className="text-center py-20">
-        <h1 className="text-5xl font-bold mb-4 text-black">
-          Hey, I’m Renz! 👋
-        </h1>
-        <p className="text-lg max-w-xl mx-auto text-black">
-          I'm a creative developer specializing in modern web animations and
-          smooth user experiences.
-        </p>
-      </section> */}
-      <HearoSetion />
-
+      {" "}
+      <div className="pt-11">
+        {" "}
+        <HearoSetion />
+      </div>
       {/* About */}
       <section
         ref={aboutRef}
@@ -79,7 +72,6 @@ export default function GsapShowcase() {
           make the web feel alive.
         </p>
       </section>
-
       {/* Skills */}
       <section
         ref={skillsRef}
