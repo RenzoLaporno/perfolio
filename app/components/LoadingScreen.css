@@ -84,6 +84,7 @@
   font-weight: 500;
   font-size: clamp(96px, 18vw, 260px);
   animation: ls-breathe 5s ease-in-out infinite;
+  text-align: center;
 }
 
 @keyframes ls-breathe { 0%,100%{ transform: scale(1); } 50%{ transform: scale(1.015); } }

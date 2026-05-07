@@ -27,7 +27,7 @@
 
 html, body {
   margin: 0;
-  background: var(--canvas);
+  background: transparent; /* PageBackground (position:fixed) provides the canvas */
   color: var(--ink);
   font-family: "Cormorant Garamond", Georgia, serif;
 }
