@@ -377,7 +377,81 @@
 
 .ls-stage.ls-done .ls-veil { opacity: 1; }
 
+/* ── Hero CTA buttons ── */
+.hero-cta-wrap {
+  position: absolute;
+  left: 50%;
+  bottom: 9vh;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+.hero-cta-primary,
+.hero-cta-secondary {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  padding: 13px 26px;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.hero-cta-primary {
+  background: #2d6e75;
+  color: #f3ece1;
+}
+
+.hero-cta-secondary {
+  border: 1px solid rgba(28,26,23,0.22);
+  color: #3a342c;
+}
+
 @media (max-width: 640px) {
   .ls-corner-r small { display: none; }
-  .ls-footer-l, .ls-footer-r { font-size: 9px; }
+  .ls-corner { left: 16px; font-size: 10px; }
+  .ls-corner-r { right: 16px; font-size: 10px; letter-spacing: .14em; }
+
+  .ls-center { padding: 20px; }
+
+  .ls-tag {
+    font-size: clamp(13px, 3.8vw, 17px);
+    text-align: center;
+  }
+
+  .ls-progress-wrap {
+    width: min(560px, 88vw);
+    bottom: 15vh;
+  }
+
+  /* Prevent footer labels from overlapping — stack them or hide one */
+  .ls-footer-l {
+    left: 0;
+    right: 0;
+    text-align: center;
+    letter-spacing: .1em;
+    font-size: 8px;
+  }
+  .ls-footer-r { display: none; }
+
+  /* Hero CTA: smaller padding on narrow screens */
+  .hero-cta-wrap {
+    bottom: 12vh;
+    gap: 10px;
+    width: 90vw;
+  }
+  .hero-cta-primary,
+  .hero-cta-secondary {
+    padding: 11px 18px;
+    font-size: 9px;
+    letter-spacing: .16em;
+  }
+}
+
+@media (max-width: 400px) {
+  .ls-corner-r { display: none; }
 }
