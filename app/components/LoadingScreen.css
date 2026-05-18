@@ -377,6 +377,40 @@
 
 .ls-stage.ls-done .ls-veil { opacity: 1; }
 
+/* ── Hero CTA buttons ── */
+.hero-cta-wrap {
+  position: absolute;
+  left: 50%;
+  bottom: 9vh;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+.hero-cta-primary,
+.hero-cta-secondary {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  padding: 13px 26px;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.hero-cta-primary {
+  background: #2d6e75;
+  color: #f3ece1;
+}
+
+.hero-cta-secondary {
+  border: 1px solid rgba(28,26,23,0.22);
+  color: #3a342c;
+}
+
 @media (max-width: 640px) {
   .ls-center { padding: 20px; justify-content: flex-start; padding-top: 20vh; }
 
@@ -428,6 +462,19 @@
   }
   .ls-footer-l { left: 18px; }
   .ls-footer-r { right: 18px; max-width: 45vw; text-align: right; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+  /* Hero CTA: smaller padding on narrow screens */
+  .hero-cta-wrap {
+    bottom: 12vh;
+    gap: 10px;
+    width: 90vw;
+  }
+  .hero-cta-primary,
+  .hero-cta-secondary {
+    padding: 11px 18px;
+    font-size: 9px;
+    letter-spacing: .16em;
+  }
 }
 
 @media (max-width: 420px) {
@@ -439,6 +486,10 @@
   .ls-progress-wrap { bottom: calc(56px + env(safe-area-inset-bottom, 0px)); }
   .ls-meta { font-size: 9px; letter-spacing: .14em; }
   .ls-pct { font-size: 11px; }
+}
+
+@media (max-width: 400px) {
+  .ls-corner-r { display: none; }
 }
 
 @media (max-height: 560px) and (orientation: landscape) {

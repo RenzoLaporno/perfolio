@@ -10,14 +10,6 @@ const ROLES = [
   "DevOps Engineer",
 ];
 
-const GRAIN_URI =
-  "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.12  0 0 0 0 0.10  0 0 0 0 0.08  0 0 0 0.18 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>\")";
-
-const MONO: React.CSSProperties = {
-  fontFamily: "'JetBrains Mono', monospace",
-  textTransform: "uppercase" as const,
-};
-
 
 interface Props { loadingDone: boolean; }
 
@@ -66,7 +58,7 @@ export default function HeroSection({ loadingDone }: Props) {
         </div>
 
         {/* Tagline — cycling role is pure inline so it never changes line height */}
-        <div className="ls-tag" style={{ textAlign: "center" }}>
+        <div className="ls-tag" style={{ textAlign: "center", opacity: 1, animation: "none", transform: "none" }}>
           A passionate{" "}
           <em style={{ color: "#a8333a", fontStyle: "italic", fontWeight: 600,
             opacity: visible ? 1 : 0, transition: "opacity 0.4s ease" }}>
@@ -77,23 +69,11 @@ export default function HeroSection({ loadingDone }: Props) {
       </div>
 
       {/* ── CTA buttons — where the progress bar lived ── */}
-      <div
-        style={{
-          position: "absolute",
-          left: "50%",
-          bottom: "9vh",
-          transform: "translateX(-50%)",
-          display: "flex",
-          gap: 14,
-          whiteSpace: "nowrap",
-          opacity: loadingDone ? 1 : 0,
-          transition: "opacity 0.7s 0.5s",
-        }}
-      >
-        <a href="#about" style={{ ...MONO, fontSize:10, letterSpacing:".22em", padding:"13px 26px", background:"#2d6e75", color:"#f3ece1", borderRadius:4, textDecoration:"none" }}>
+      <div className="hero-cta-wrap" style={{ opacity: loadingDone ? 1 : 0, transition: "opacity 0.7s 0.5s" }}>
+        <a href="#about" className="hero-cta-primary">
           View My Work ↗
         </a>
-        <a href="#contact" style={{ ...MONO, fontSize:10, letterSpacing:".22em", padding:"13px 26px", border:"1px solid rgba(28,26,23,0.22)", color:"#3a342c", borderRadius:4, textDecoration:"none" }}>
+        <a href="#contact" className="hero-cta-secondary">
           Get in Touch
         </a>
       </div>
