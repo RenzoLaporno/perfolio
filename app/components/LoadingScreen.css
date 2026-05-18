@@ -378,6 +378,72 @@
 .ls-stage.ls-done .ls-veil { opacity: 1; }
 
 @media (max-width: 640px) {
+  .ls-center { padding: 20px; justify-content: flex-start; padding-top: 20vh; }
+
+  .ls-corner { left: 18px; top: 18px; font-size: 10px; letter-spacing: .18em; }
+  .ls-corner-r { right: 18px; top: 18px; font-size: 10px; letter-spacing: .18em; }
   .ls-corner-r small { display: none; }
-  .ls-footer-l, .ls-footer-r { font-size: 9px; }
+  .ls-glyph { width: 8px; height: 8px; margin-right: 8px; }
+
+  .ls-eyebrow { font-size: 10px; letter-spacing: .22em; text-align: center; }
+  .ls-dot { width: 5px; height: 5px; margin: 0 8px 1px; }
+
+  .ls-wordmark { font-size: clamp(72px, 22vw, 140px); margin: 14px 0 6px; }
+  .ls-tag { font-size: 15px; text-align: center; padding: 0 12px; line-height: 1.35; }
+
+  .ls-progress-wrap {
+    width: calc(100vw - 32px);
+    left: 16px;
+    transform: none;
+    bottom: calc(72px + env(safe-area-inset-bottom, 0px));
+    gap: 12px;
+  }
+
+  .ls-meta { font-size: 10px; letter-spacing: .18em; gap: 12px; flex-wrap: nowrap; }
+  .ls-meta > span:first-child {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0;
+    flex: 1 1 auto;
+  }
+  .ls-pct { font-size: 12px; white-space: nowrap; flex: 0 0 auto; }
+
+  .ls-bar { height: 3px; }
+  .ls-bar-head { width: 12px; height: 12px; }
+
+  .ls-label-row { font-size: 9px; letter-spacing: .16em; }
+  .ls-label-row span:last-child { display: none; }
+  .ls-label-row span:first-child {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+
+  .ls-footer-l, .ls-footer-r {
+    font-size: 9px;
+    letter-spacing: .16em;
+    bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+  }
+  .ls-footer-l { left: 18px; }
+  .ls-footer-r { right: 18px; max-width: 45vw; text-align: right; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+}
+
+@media (max-width: 420px) {
+  .ls-center { padding-top: 22vh; }
+  .ls-wordmark { font-size: clamp(64px, 24vw, 110px); }
+  .ls-tag { font-size: 14px; }
+  .ls-corner, .ls-corner-r { font-size: 9px; }
+  .ls-footer-r { display: none; }
+  .ls-progress-wrap { bottom: calc(56px + env(safe-area-inset-bottom, 0px)); }
+  .ls-meta { font-size: 9px; letter-spacing: .14em; }
+  .ls-pct { font-size: 11px; }
+}
+
+@media (max-height: 560px) and (orientation: landscape) {
+  .ls-center { padding-top: 0; justify-content: center; }
+  .ls-wordmark { font-size: clamp(48px, 12vw, 96px); margin: 6px 0; }
+  .ls-progress-wrap { bottom: 20px; width: min(560px, 86vw); }
+  .ls-corner, .ls-corner-r { top: 12px; }
 }

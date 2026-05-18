@@ -255,8 +255,80 @@
   .replay:hover{ background:#fff; border-color:var(--crim); color:var(--crim);}
 
   @media (max-width:640px){
-    .corner-r small{display:none}
-    .footer-l, .footer-r{font-size:9px}
+    .center{ padding:20px; justify-content:flex-start; padding-top:22vh; }
+    .corner{ left:18px; top:18px; font-size:10px; letter-spacing:.18em; }
+    .corner-r{ right:18px; top:18px; font-size:10px; letter-spacing:.18em; }
+    .corner-r small{ display:none; }
+    .corner .glyph{ width:8px; height:8px; margin-right:8px; }
+    .eyebrow{ font-size:10px; letter-spacing:.24em; text-align:center; }
+    .wordmark{
+      font-size:clamp(64px, 22vw, 140px);
+      margin:14px 0 6px;
+    }
+    .tag{
+      font-size:15px;
+      text-align:center;
+      padding:0 12px;
+      line-height:1.35;
+    }
+    .progress-wrap{
+      width:calc(100vw - 32px);
+      left:16px;
+      transform:none;
+      bottom:calc(72px + env(safe-area-inset-bottom, 0px));
+      gap:12px;
+    }
+    .meta{
+      font-size:10px;
+      letter-spacing:.18em;
+      gap:12px;
+      flex-wrap:nowrap;
+    }
+    .meta > span:first-child{
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      min-width:0;
+      flex:1 1 auto;
+    }
+    .meta .pct{ font-size:12px; white-space:nowrap; flex:0 0 auto; }
+    .bar{ height:3px; }
+    .bar .head{ width:12px; height:12px; }
+    .label-row{ font-size:9px; letter-spacing:.16em; }
+    .label-row span:last-child{ display:none; }
+    .label-row span:first-child{
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      max-width:100%;
+    }
+    .footer-l, .footer-r{
+      font-size:9px;
+      letter-spacing:.18em;
+      bottom:18px;
+    }
+    .footer-l{ left:18px; }
+    .footer-r{ right:18px; }
+  }
+  @media (max-width:420px){
+    .center{ padding-top:24vh; }
+    .wordmark{ font-size:clamp(56px, 24vw, 110px); }
+    .tag{ font-size:14px; }
+    .corner, .corner-r{ font-size:9px; }
+    .footer-r{ display:none; }
+    .footer-l{ right:18px; text-align:center; left:18px; }
+    .progress-wrap{ bottom:calc(56px + env(safe-area-inset-bottom, 0px)); }
+    .meta{ font-size:9px; letter-spacing:.14em; }
+    .meta .pct{ font-size:11px; }
+  }
+  @media (max-height:560px) and (orientation:landscape){
+    .center{ padding-top:0; justify-content:center; }
+    .wordmark{ font-size:clamp(48px, 12vw, 96px); margin:6px 0; }
+    .progress-wrap{ bottom:24px; width:min(560px, 86vw); }
+    .corner, .corner-r{ top:14px; }
+  }
+  @media (hover:none) and (pointer:coarse){
+    .label-row span:last-child{ display:none; }
   }
 </style>
 </head>
@@ -389,7 +461,8 @@
 (function specks(){
   const root = document.getElementById('specks');
   const colors = ['#2d6e75','#d4623a','#a8333a','#c69633','#5a2a3a','#3a8a8f','#e8825a'];
-  const N = 80;
+  const isSmall = window.matchMedia('(max-width:640px)').matches;
+  const N = isSmall ? 36 : 80;
   for(let i=0;i<N;i++){
     const s = document.createElement('span');
     s.className='speck';
@@ -441,9 +514,10 @@
       setTimeout(()=> r.remove(), 1500);
     };
   }
-  setInterval(spawn, 350);
+  const isSmall = window.matchMedia('(max-width:640px)').matches;
+  setInterval(spawn, isSmall ? 700 : 350);
   // initial burst
-  for(let i=0;i<6;i++) setTimeout(spawn, i*180);
+  for(let i=0;i<(isSmall?3:6);i++) setTimeout(spawn, i*180);
 })();
 
 (function progress(){

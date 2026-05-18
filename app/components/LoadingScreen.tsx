@@ -74,7 +74,9 @@ export default function LoadingScreen({ onComplete }: Props) {
     const root = specksRef.current;
     if (!root) return;
     const colors = ['#2d6e75','#d4623a','#a8333a','#c69633','#5a2a3a','#3a8a8f','#e8825a'];
-    for (let i = 0; i < 80; i++) {
+    const isSmall = window.matchMedia('(max-width: 640px)').matches;
+    const count = isSmall ? 36 : 80;
+    for (let i = 0; i < count; i++) {
       const s = document.createElement('span');
       s.className = 'ls-speck';
       const size = 2 + Math.pow(Math.random(), 2.4) * 24;
@@ -127,8 +129,11 @@ export default function LoadingScreen({ onComplete }: Props) {
       };
     }
 
-    const timers = Array.from({ length: 6 }, (_, i) => window.setTimeout(spawn, i * 180));
-    const interval = window.setInterval(spawn, 350);
+    const isSmall = window.matchMedia('(max-width: 640px)').matches;
+    const burstCount = isSmall ? 3 : 6;
+    const spawnInterval = isSmall ? 700 : 350;
+    const timers = Array.from({ length: burstCount }, (_, i) => window.setTimeout(spawn, i * 180));
+    const interval = window.setInterval(spawn, spawnInterval);
     return () => { clearInterval(interval); timers.forEach(clearTimeout); };
   }, []);
 

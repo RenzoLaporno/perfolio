@@ -42,21 +42,21 @@ const EXPERIENCE = [
     company: "Prometheus PH",
     role: "Software Engineer — Full Stack Developer",
     tags: ["React", "Next.js", "TypeScript", "Node.js", "Firebase", "AWS"],
-    desc: "Spearheading multiple full-stack projects from conception to deployment. Led solo projects with full ownership of architecture and delivery. Modernized legacy HTML/JS systems into secure, modern frameworks.",
+    desc: "Leading multiple full-stack projects from conception to deployment, with full ownership of architecture and delivery. Modernizing legacy HTML/JS systems into secure, maintainable frameworks.",
   },
   {
     period: "Oct 2024 — Mar 2025",
     company: "Trajector",
     role: "Software Engineer Intern",
     tags: ["React", "Node.js", "MERN Stack", "AWS", "Azure AI", "Bash"],
-    desc: "Automated ticket creation from ConnectWise to AHA! on AWS. Built AI-powered applicant management system with resume parsing. Developed Azure AI test cases and Bash onboarding scripts for macOS & Windows.",
+    desc: "Automated ticket creation from ConnectWise to Aha! deployed on AWS. Built an AI-powered applicant management system with résumé parsing. Developed Azure AI test cases and Bash onboarding scripts for macOS and Windows.",
   },
   {
     period: "Feb 2024 — Jun 2024",
     company: "Kachick",
     role: "Frontend Developer",
     tags: ["Next.js", "Firebase", "JavaScript"],
-    desc: "Spearheaded development of a fully functional website from scratch using Next.js. Deployed and maintained via Firebase hosting. Collaborated with the tech lead on a mobile-first web platform.",
+    desc: "Led the development of a fully functional website from scratch using Next.js. Deployed and maintained the site on Firebase hosting. Collaborated with the tech lead to build a mobile-first web platform.",
   },
   {
     period: "2024 — Present",
@@ -70,7 +70,7 @@ const EXPERIENCE = [
     company: "Central Philippine University",
     role: "Full Stack Developer — Play Robos",
     tags: ["React", "Node.js", "Block-based Programming"],
-    desc: "Built a robotic & programming learning platform with a drag-and-drop block-building system. Gamified to motivate learners and reinforce computational thinking through robotic simulations.",
+    desc: "Built a robotics and programming learning platform with a drag-and-drop block-building system. Designed with gamification principles to motivate learners and reinforce computational thinking through hands-on robotic simulations.",
   },
 ];
 
@@ -323,16 +323,16 @@ export default function Portfolio() {
                 className="leading-relaxed mb-10"
                 style={{
                   fontFamily: "'Cormorant Garamond', Georgia, serif",
-                  fontSize: "clamp(17px, 1.5vw, 20px)",
+                  fontSize: "clamp(18px, 1.6vw, 22px)",
                   color: "#5a4f43",
                   maxWidth: "46ch",
                 }}
               >
-                I&apos;m a full-stack developer building production systems at an agency —
-                owning the stack from frontend to backend, database, auth, and deployment.
-                I ship real enterprise software, care deeply about how things look and feel,
+                Full-stack developer building production systems at an agency — owning the
+                stack end-to-end, from frontend to backend, database, auth, and deployment.
+                I ship real enterprise software, care deeply about craft and user experience,
                 and bring 3D, animation, and AI into production. I move fast, iterate often,
-                and never stop at good enough.
+                and never settle for good enough.
               </p>
 
               {/* Stats */}
@@ -509,8 +509,8 @@ export default function Portfolio() {
                         }} />
                         <span style={{
                           fontFamily: "'JetBrains Mono', monospace",
-                          fontSize: 10,
-                          letterSpacing: ".14em",
+                          fontSize: 12,
+                          letterSpacing: ".12em",
                           textTransform: "uppercase",
                           color: "#1c1a17",
                           whiteSpace: "nowrap",
@@ -577,7 +577,7 @@ export default function Portfolio() {
 
                     <p
                       className="leading-relaxed mb-6"
-                      style={{ fontFamily:"'Cormorant Garamond',Georgia,serif", fontSize:"clamp(16px,1.3vw,19px)", color:"#5a4f43", maxWidth:"44ch" }}
+                      style={{ fontFamily:"'Cormorant Garamond',Georgia,serif", fontSize:"clamp(17px,1.5vw,21px)", color:"#5a4f43", maxWidth:"44ch" }}
                     >
                       {p.desc}
                     </p>
@@ -610,20 +610,23 @@ export default function Portfolio() {
                     </a>
                   </div>
 
-                  {/* Screenshot */}
-                  <div
-                    className="relative rounded-2xl overflow-hidden"
-                    style={{ border:"1px solid rgba(28,26,23,0.1)", boxShadow:"0 8px 40px rgba(28,26,23,0.1)", direction:"ltr" }}
+                  {/* Screenshot — clicking opens the live site */}
+                  <a
+                    href={p.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="relative rounded-2xl overflow-hidden block group"
+                    style={{ border:"1px solid rgba(28,26,23,0.1)", boxShadow:"0 8px 40px rgba(28,26,23,0.1)", direction:"ltr", textDecoration:"none" }}
                   >
                     {/* Colour accent bar */}
                     <div style={{ height:3, background: p.color, position:"absolute", top:0, left:0, right:0, zIndex:1 }} />
                     <img
                       src={p.img}
                       alt={p.name}
-                      className="w-full block"
+                      className="w-full block transition-transform duration-500 group-hover:scale-[1.02]"
                       style={{ display:"block", aspectRatio:"16/9", objectFit:"cover", maxHeight:300 }}
                     />
-                    {/* Subtle overlay with URL */}
+                    {/* Overlay with URL */}
                     <div
                       className="absolute bottom-0 left-0 right-0 flex items-center justify-between px-5 py-3"
                       style={{ background:"rgba(28,26,23,0.65)", backdropFilter:"blur(8px)" }}
@@ -631,9 +634,9 @@ export default function Portfolio() {
                       <span style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:10, letterSpacing:".18em", color:"rgba(243,236,225,0.7)" }}>
                         {p.url.replace("https://","")}
                       </span>
-                      <span style={{ width:6, height:6, borderRadius:"50%", background:p.color, display:"inline-block" }} />
+                      <span style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:9, letterSpacing:".18em", color:p.color }}>↗</span>
                     </div>
-                  </div>
+                  </a>
                 </div>
               ))}
             </div>
@@ -693,10 +696,10 @@ export default function Portfolio() {
 
                   {/* Right: role + desc + tags */}
                   <div className="exp-right">
-                    <h3 style={{ fontFamily:"'Cormorant Garamond',Georgia,serif", fontSize:"clamp(20px,2vw,28px)", fontWeight:500, color:"#1c1a17", marginBottom:10, lineHeight:1.2 }}>
+                    <h3 style={{ fontFamily:"'Cormorant Garamond',Georgia,serif", fontSize:"clamp(22px,2vw,30px)", fontWeight:500, color:"#1c1a17", marginBottom:10, lineHeight:1.2 }}>
                       {exp.role}
                     </h3>
-                    <p style={{ fontFamily:"'Cormorant Garamond',Georgia,serif", fontSize:"clamp(15px,1.2vw,18px)", color:"#5a4f43", lineHeight:1.8, marginBottom:14 }}>
+                    <p style={{ fontFamily:"'Cormorant Garamond',Georgia,serif", fontSize:"clamp(18px,1.4vw,21px)", color:"#5a4f43", lineHeight:1.85, marginBottom:14 }}>
                       {exp.desc}
                     </p>
                     <div className="flex flex-wrap gap-2">
@@ -769,7 +772,7 @@ export default function Portfolio() {
               <em style={{ color:"#d4623a" }}>something.</em>
             </h2>
 
-            <p style={{ fontFamily:"'Cormorant Garamond',Georgia,serif", fontSize:"clamp(17px,1.5vw,20px)", color:"#5a4f43", marginBottom:48, fontStyle:"italic" }}>
+            <p style={{ fontFamily:"'Cormorant Garamond',Georgia,serif", fontSize:"clamp(18px,1.6vw,22px)", color:"#5a4f43", marginBottom:48, fontStyle:"italic" }}>
               Open for freelance, collaborations &amp; full-time roles.
             </p>
 
